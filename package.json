@@ -1,0 +1,16 @@
+{
+  "name": "d3-face",
+  "version": "1.0.0",
+  "description": "d3 test with a face",
+  "main": "main.js",
+  "dependencies": {
+    "d3": "^5.12.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "http-server"
+  },
+  "author": "",
+  "license": "ISC"
+}
