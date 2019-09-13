@@ -1,7 +1,7 @@
 {
-  "name": "d3-face",
+  "name": "d3-sunset",
   "version": "1.0.0",
-  "description": "d3 test with a face",
+  "description": "A D3 sunset.",
   "main": "main.js",
   "dependencies": {
     "d3": "^5.12.0"
