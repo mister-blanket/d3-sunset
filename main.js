@@ -3,7 +3,7 @@
 const svg = d3.select('svg');
 
 // TIME
-const day = 3300;
+const day = 3000;
 const set = 3300;
 const eve = 6600;
 
