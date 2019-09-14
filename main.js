@@ -41,7 +41,7 @@ for (let i = 0; i < width/4; i++) {
       .duration(8000)
     .transition()
       .duration(15000)
-      .attr('fill-opacity', 0.8);
+      .attr('fill-opacity', 0.9);
 };
 for (let i = 0; i < width; i++) {
   let starPosition = [(Math.random()*width),(Math.random()*(horizonBase+(height*1/12)))];
@@ -56,7 +56,7 @@ for (let i = 0; i < width; i++) {
       .duration(8000)
     .transition()
       .duration(15000)
-      .attr('fill-opacity', 0.5);
+      .attr('fill-opacity', 0.7);
 };
 
 const sun = svg
