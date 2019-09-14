@@ -20,9 +20,9 @@ svg
 
 const height = +svg.style("height").slice(0,-2); // 800
 const width = +svg.style("width").slice(0,-2); // 600
-const foothillsYBase = height*(7.5/12);
-const midrangeHillsBase = height*(5.5/12);
-const farHillsBase = height*(4.5/12);
+const foothillsYBase = height*(7.8/12);
+const midrangeHillsBase = height*(6/12);
+const farHillsBase = height*(4.7/12);
 const horizonBase = height*(4/12);
 
 console.log(horizonBase+50);
@@ -76,9 +76,9 @@ const horizon = svg
   .append('path')
     .attr('d',
       `M0 ${horizonBase}
-      L${width*(1/8)} ${horizonBase-10}
-      L${width*(3/4)} ${horizonBase+5}
-      L${width} ${horizonBase-5}
+      L${width*(1/8)} ${horizonBase-(height/100)}
+      L${width*(3/4)} ${horizonBase+(height/100)}
+      L${width} ${horizonBase-(height/100)}
       L${width} ${height}
       L0 ${height}`)
     .attr('fill', '#92a6ab')
@@ -95,9 +95,9 @@ const farHills = svg
   .append('path')
     .attr('d',
       `M0 ${farHillsBase}
-      L${width*(2/7)} ${farHillsBase+10}
-      L${width*(5/8)} ${farHillsBase-15}
-      L${width} ${farHillsBase+30}
+      L${width*(2/7)} ${farHillsBase+(height/50)}
+      L${width*(5/8)} ${farHillsBase-(height/40)}
+      L${width} ${farHillsBase+(height/100)}
       L${width} ${height}
       L0 ${height}`)
     .attr('fill', '#a5b0b5')
@@ -114,10 +114,10 @@ const midrangeHills = svg
   .append('path')
     .attr('d',
       `M0 ${midrangeHillsBase}
-      L${width*(1/8)} ${midrangeHillsBase+10}
-      L${width*(3/7)} ${midrangeHillsBase-20}
-      L${width*(5/6)} ${midrangeHillsBase+40}
-      L${width} ${midrangeHillsBase+30}
+      L${width*(1/8)} ${midrangeHillsBase+(height/50)}
+      L${width*(3/7)} ${midrangeHillsBase-(height/25)}
+      L${width*(5/6)} ${midrangeHillsBase+(height/20)}
+      L${width} ${midrangeHillsBase+(height/50)}
       L${width} ${height}
       L0 ${height}`)
     .attr('fill', '#c1c9b9')
@@ -134,11 +134,11 @@ const foothills = svg
   .append('path')
     .attr('d',
       `M0 ${foothillsYBase}
-      L${width*(1/6)} ${foothillsYBase-70}
-      L${width*(2/6)} ${foothillsYBase-20}
-      L${width*(3/6)} ${foothillsYBase-60}
-      L${width*(5/6)} ${foothillsYBase+20}
-      L${width} ${foothillsYBase-50}
+      L${width*(1/6)} ${foothillsYBase-(height/12)}
+      L${width*(2/6)} ${foothillsYBase-(height/40)}
+      L${width*(3/6)} ${foothillsYBase-(height/15)}
+      L${width*(5/6)} ${foothillsYBase+(height/50)}
+      L${width} ${foothillsYBase-(height/17)}
       L${width} ${height}
       L0 ${height}`)
     .attr('fill', '#d5dbb8')
