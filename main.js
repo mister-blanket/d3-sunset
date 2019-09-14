@@ -8,7 +8,7 @@ const set = 3300;
 const eve = 6600;
 
 svg
-  .style('background-color', '#c0e3ff')
+  .style('background-color', '#bfdfff')
   .transition()
     .duration(day)
   .transition()
@@ -16,23 +16,20 @@ svg
     .style('background-color', '#cfafab')
   .transition()
     .duration(eve)
-    .style('background-color', '#1c1b5c');
+    .style('background-color', '#302659');
 
-const height = +svg.attr('height');
-const width = +svg.attr('width');
-const foothillsYBase = 540;
-const midrangeHillsBase = 400;
-const farHillsBase = 330;
-const horizonBase = 310;
+const height = +svg.style("height").slice(0,-2); // 800
+const width = +svg.style("width").slice(0,-2); // 600
+const foothillsYBase = height*(7.5/12);
+const midrangeHillsBase = height*(5.5/12);
+const farHillsBase = height*(4.5/12);
+const horizonBase = height*(4/12);
 
-// HEAD
-const g = svg
-  .append('g')
-    .attr('transform', `translate(${width/2}, ${height/2})`);
+console.log(horizonBase+50);
 
 // STARS
-for (let i = 0; i < 200; i++) {
-  let starPosition = [(Math.random()*600),(Math.random()*220)];
+for (let i = 0; i < width/4; i++) {
+  let starPosition = [(Math.random()*width),(Math.random()*(horizonBase-(height*1/12)))];
   let star = svg
     .append('circle')
       .attr('r', Math.random())
@@ -41,13 +38,13 @@ for (let i = 0; i < 200; i++) {
       .attr('fill', '#ddd')
       .attr('fill-opacity', 0)
     .transition()
-      .duration(10000)
+      .duration(8000)
     .transition()
-      .duration(16000)
-      .attr('fill-opacity', 1);
+      .duration(15000)
+      .attr('fill-opacity', 0.8);
 };
-for (let i = 0; i < 400; i++) {
-  let starPosition = [(Math.random()*600),(Math.random()*300)];
+for (let i = 0; i < width; i++) {
+  let starPosition = [(Math.random()*width),(Math.random()*(horizonBase+(height*1/12)))];
   let star = svg
     .append('circle')
       .attr('r', Math.random())
@@ -56,59 +53,59 @@ for (let i = 0; i < 400; i++) {
       .attr('fill', '#ddd')
       .attr('fill-opacity', 0)
     .transition()
-      .duration(10000)
+      .duration(8000)
     .transition()
-      .duration(16000)
-      .attr('fill-opacity', 1);
+      .duration(15000)
+      .attr('fill-opacity', 0.5);
 };
 
 const sun = svg
   .append('circle')
     .attr('r', 30)
-    .attr('cx', 400)
+    .attr('cx', width*(3/5))
     .attr('cy', -30)
     .attr('fill', 'yellow')
   .transition()
     .duration(11000)
     .attr('r', 40)
-    .attr('cx', 300)
-    .attr('cy', 350)
+    .attr('cx', width*(2/5))
+    .attr('cy', (horizonBase+(height*1/12)+30))
     .attr('fill', 'orange')
 
 const horizon = svg
   .append('path')
     .attr('d',
-      `M-80 ${horizonBase}
-      L200 ${horizonBase-10}
-      L550 ${horizonBase-5}
-      L600 ${horizonBase}
-      L691 ${horizonBase+300}
-      L-30 ${horizonBase+300}`)
-    .attr('fill', '#9bb2b8')
+      `M0 ${horizonBase}
+      L${width*(1/8)} ${horizonBase-10}
+      L${width*(3/4)} ${horizonBase+5}
+      L${width} ${horizonBase-5}
+      L${width} ${height}
+      L0 ${height}`)
+    .attr('fill', '#92a6ab')
   .transition()
     .duration(day)
   .transition()
     .duration(set)
-    .attr('fill', '#bfa0b6')
+    .attr('fill', '#99868f')
   .transition()
     .duration(eve)
-    .attr('fill', '#2f2e4a');
+    .attr('fill', '#34324d');
 
 const farHills = svg
   .append('path')
     .attr('d',
-      `M-80 ${farHillsBase}
-      L200 ${farHillsBase+10}
-      L450 ${farHillsBase-20}
-      L600 ${farHillsBase+30}
-      L691 ${farHillsBase+300}
-      L-30 ${farHillsBase+300}`)
+      `M0 ${farHillsBase}
+      L${width*(2/7)} ${farHillsBase+10}
+      L${width*(5/8)} ${farHillsBase-15}
+      L${width} ${farHillsBase+30}
+      L${width} ${height}
+      L0 ${height}`)
     .attr('fill', '#a5b0b5')
   .transition()
     .duration(day)
   .transition()
     .duration(set)
-    .attr('fill', '#bd9991')
+    .attr('fill', '#b89890')
   .transition()
     .duration(eve)
     .attr('fill', '#3a3a5e');
@@ -116,35 +113,14 @@ const farHills = svg
 const midrangeHills = svg
   .append('path')
     .attr('d',
-      `M-80 ${midrangeHillsBase}
-      L120 ${midrangeHillsBase+10}
-      L250 ${midrangeHillsBase-20}
-      L470 ${midrangeHillsBase+40}
-      L690 ${midrangeHillsBase+30}
-      L691 ${midrangeHillsBase+300}
-      L-30 ${midrangeHillsBase+300}`)
+      `M0 ${midrangeHillsBase}
+      L${width*(1/8)} ${midrangeHillsBase+10}
+      L${width*(3/7)} ${midrangeHillsBase-20}
+      L${width*(5/6)} ${midrangeHillsBase+40}
+      L${width} ${midrangeHillsBase+30}
+      L${width} ${height}
+      L0 ${height}`)
     .attr('fill', '#c1c9b9')
-  .transition()
-    .duration(day)
-  .transition()
-    .duration(set)
-    .attr('fill', '#b0b0ac')
-  .transition()
-    .duration(eve)
-    .attr('fill', '#4a4975');
-
-const foothills = svg
-  .append('path')
-    .attr('d',
-      `M-80 ${foothillsYBase}
-      L90 ${foothillsYBase-80}
-      L200 ${foothillsYBase-20}
-      L350 ${foothillsYBase-60}
-      L560 ${foothillsYBase+20}
-      L690 ${foothillsYBase-100}
-      L691 ${foothillsYBase+300}
-      L-30 ${foothillsYBase+300}`)
-    .attr('fill', '#d5dbb8')
   .transition()
     .duration(day)
   .transition()
@@ -152,4 +128,25 @@ const foothills = svg
     .attr('fill', '#b0a7a4')
   .transition()
     .duration(eve)
-    .attr('fill', '#656294');
+    .attr('fill', '#4a4975');
+
+const foothills = svg
+  .append('path')
+    .attr('d',
+      `M0 ${foothillsYBase}
+      L${width*(1/6)} ${foothillsYBase-70}
+      L${width*(2/6)} ${foothillsYBase-20}
+      L${width*(3/6)} ${foothillsYBase-60}
+      L${width*(5/6)} ${foothillsYBase+20}
+      L${width} ${foothillsYBase-50}
+      L${width} ${height}
+      L0 ${height}`)
+    .attr('fill', '#d5dbb8')
+  .transition()
+    .duration(day)
+  .transition()
+    .duration(set)
+    .attr('fill', '#b0b0ac')
+  .transition()
+    .duration(eve)
+    .attr('fill', '#605d8a');
