@@ -25,7 +25,7 @@ const midrangeHillsBase = height*(6/12);
 const farHillsBase = height*(4.7/12);
 const horizonBase = height*(4/12);
 
-console.log(horizonBase+50);
+// console.log(horizonBase+50);
 
 // STARS
 for (let i = 0; i < width/4; i++) {
